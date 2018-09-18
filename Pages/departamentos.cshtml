@@ -1,0 +1,45 @@
+﻿@page
+@model departamentos
+@{
+    ViewData["Title"] = "Departamentos";
+}
+<h2>Departamentos</h2>
+
+<p>  
+    <a asp-page="departamentosNuevo">Create New</a>  
+</p>  
+<table class="table">  
+    <thead>  
+        <tr>  
+            <th>  
+                @Html.DisplayNameFor(model => model.dptos[0].ID)  
+            </th>  
+            <th>  
+                @Html.DisplayNameFor(model => model.dptos[0].nombre)  
+            </th>  
+            <th>  
+                @Html.DisplayNameFor(model => model.dptos[0].activo)  
+            </th>  
+            <th></th>  
+        </tr>  
+    </thead>  
+    <tbody>  
+        @foreach (var item in Model.dptos)  
+        {  
+            <tr>  
+                <td>  
+                    @Html.DisplayFor(modelItem => item.ID)  
+                </td>  
+                <td>  
+                    @Html.DisplayFor(modelItem => item.nombre)  
+                </td>  
+                <td>  
+                    @Html.DisplayFor(modelItem => item.activo)  
+                </td>
+                <td>  
+                    <a asp-page="./EditEmployee" asp-route-id="@item.ID">Editar</a>
+                </td>  
+            </tr>  
+        }  
+    </tbody>  
+</table>  
